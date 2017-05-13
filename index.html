@@ -6,41 +6,15 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
     </head>
     <body ng-app='divApp' ng-controller='divCtrl'>
         <div class="container">
             <div class="jumbotron">
-                <h1>Dividends list</h1>
-            </div>    
-            <div class="pull-right">
-                <form class="form-inline" role="form">
-                    <label for="filter">Search</label>
-                    <input id="filter" class="form-control" type="text" ng-model="query">
-                </form>
+                <h1>Dividends</h1>
             </div>
-        <table class="table">
-          <thead>
-              <tr>
-                  <th>No</th>
-                  <th>Name</th>
-                  <th>Yield</th>
-                  <th>Ratio</th>
-                  <th>Ex Date</th>
-                  <th>Payout Date</th>
-              </tr>
-          </thead>
-          <tbody>
-          <tr ng-repeat="x in dividends | filter:query">
-            <td>{{$index + 1}}</td>  
-            <td>{{ x.company }}</td>
-            <td>{{ x.yield }}</td>
-            <td>{{ x.payoutRatio }}</td>
-            <td>{{ x.exDate }}</td>
-            <td>{{ x.payoutDate }}</td>
-          </tr>
-          </tbody>
-        </table>
-        </div>    
+            <div ng-view></div>
+        </div>
         <script src="controller.js"></script>
     </body>
 </html>
