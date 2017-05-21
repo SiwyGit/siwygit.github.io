@@ -1,5 +1,6 @@
 var app = angular.module('divApp', ["ngRoute"]);
-app.config(function($routeProvider) {
+app.config(function($routeProvider, $locationProvider) {
+    $locationProvider.html5Mode(true);
     $routeProvider
     .when("/", {
         templateUrl : "table.html"
@@ -18,5 +19,4 @@ app.controller('compCtrl', function ($scope, $routeParams, $http) {
     $http.get('datatable1.json').success(function (data) {
         $scope.dividend = data.dividends2017[$routeParams.companyID];
     });
-
 });
